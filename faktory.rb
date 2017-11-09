@@ -1,8 +1,8 @@
 class Faktory < Formula
   desc "Takin' care of business, workin' overtime"
   homepage "https://github.com/contribsys/faktory"
-  url "https://github.com/contribsys/faktory/archive/v0.5.0.tar.gz"
-  sha256 "388eefa0834ff71803a3353db5ae336e73246e1ca2a5866c218e8172a253fceb"
+  url "https://github.com/contribsys/faktory/archive/v0.6.0-1.tar.gz"
+  sha256 "8df9377aee19117074b4e627b847dcbfc1ccdd64908234aeb4fd5f7c37a6ed42"
 
   depends_on "rocksdb"
   depends_on "snappy"
