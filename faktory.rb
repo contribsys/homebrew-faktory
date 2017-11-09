@@ -1,7 +1,11 @@
 class Faktory < Formula
-  desc "Takin' care of business, workin' overtime"
+  VERSION = "0.6.0-1".freeze
+
+  desc "High-performance background job server"
   homepage "https://github.com/contribsys/faktory"
-  url "https://github.com/contribsys/faktory/archive/v0.6.0-1.tar.gz"
+  url "https://github.com/contribsys/faktory/archive/v#{VERSION}.tar.gz"
+  # homebrew can't decipher version in the archive URL, need to manually specify
+  version VERSION
   sha256 "8df9377aee19117074b4e627b847dcbfc1ccdd64908234aeb4fd5f7c37a6ed42"
 
   depends_on "rocksdb"
