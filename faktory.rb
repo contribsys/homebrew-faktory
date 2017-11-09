@@ -47,8 +47,8 @@ class Faktory < Formula
     cd "src/github.com/contribsys/faktory" do
       system "dep", "ensure"
       system "go", "generate", "github.com/contribsys/faktory/webui"
-      system "go", "build", "-o", bin/"faktory", "./cmd/daemon.go"
-      system "go", "build", "-o", bin/"faktory-cli", "./cmd/repl.go"
+      system "go", "build", "-o", bin/"faktory", "./cmd/faktory/daemon.go"
+      system "go", "build", "-o", bin/"faktory-cli", "./cmd/faktory-cli/repl.go"
       prefix.install_metafiles
     end
   end
