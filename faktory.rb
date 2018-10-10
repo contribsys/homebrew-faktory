@@ -1,15 +1,14 @@
 class Faktory < Formula
-  VERSION = "0.7.0-1".freeze
+  VERSION = "0.9.0-beta3".freeze
 
   desc "High-performance background job server"
   homepage "https://github.com/contribsys/faktory"
   url "https://github.com/contribsys/faktory/archive/v#{VERSION}.tar.gz"
   # homebrew can't decipher version in the archive URL, need to manually specify
   version VERSION
-  sha256 "d2e69d4d27524437cc836dbd8ad86f5553ad55caaa4aad3abc84ed679ae7788e"
+  sha256 "ce5201014e4ca3d6d2939fe562eb54c8c4835e8a6faf248ace922dd02e33fa13"
 
-  depends_on "rocksdb"
-  depends_on "snappy"
+  depends_on "redis"
   depends_on "dep" => :build
   depends_on "go" => :build
 
@@ -25,8 +24,6 @@ class Faktory < Formula
 
   def install
     go_bin_path = "#{buildpath}/bin"
-    ENV["CGO_CFLAGS"] = "-I#{Formula["rocksdb"].opt_include}"
-    ENV["CGO_LDFLAGS"] = "-L#{Formula["rocksdb"].opt_lib}"
     ENV["GOPATH"] = buildpath
 
     (buildpath/"src/github.com/contribsys/faktory").install buildpath.children
@@ -52,7 +49,6 @@ class Faktory < Formula
       system "dep", "ensure"
       system "go", "generate", "github.com/contribsys/faktory/webui"
       system "go", "build", "-o", bin/"faktory", "./cmd/faktory/daemon.go"
-      system "go", "build", "-o", bin/"faktory-cli", "./cmd/faktory-cli/repl.go"
       prefix.install_metafiles
     end
   end
@@ -85,6 +81,5 @@ class Faktory < Formula
 
   test do
     shell_output("#{bin}/faktory -v", 0)
-    shell_output("#{bin}/faktory-cli -v", 0)
   end
 end
