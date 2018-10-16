@@ -1,12 +1,12 @@
 class Faktory < Formula
-  VERSION = "0.9.0-beta3".freeze
+  VERSION = "0.9.0-1".freeze
 
   desc "High-performance background job server"
   homepage "https://github.com/contribsys/faktory"
   url "https://github.com/contribsys/faktory/archive/v#{VERSION}.tar.gz"
   # homebrew can't decipher version in the archive URL, need to manually specify
   version VERSION
-  sha256 "ce5201014e4ca3d6d2939fe562eb54c8c4835e8a6faf248ace922dd02e33fa13"
+  sha256 "511d6c05b9e052d0bbcc47e9477810e91c8cde79c7d1828f2593f9e05b6f5b67"
 
   depends_on "redis"
   depends_on "dep" => :build
