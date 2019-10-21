@@ -5,7 +5,6 @@ class Faktory < Formula
   sha256 "<%= sha %>"
 
   depends_on "redis"
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   resource "ego" do
@@ -42,7 +41,6 @@ class Faktory < Formula
     end
 
     cd "src/github.com/contribsys/faktory" do
-      system "dep", "ensure"
       system "go", "generate", "github.com/contribsys/faktory/webui"
       system "go", "build", "-o", bin/"faktory", "./cmd/faktory/daemon.go"
       prefix.install_metafiles
