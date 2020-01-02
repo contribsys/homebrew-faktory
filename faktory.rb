@@ -1,11 +1,10 @@
 class Faktory < Formula
   desc "High-performance background job server"
   homepage "https://github.com/contribsys/faktory"
-  url "https://github.com/contribsys/faktory/tarball/v1.1.0-2"
-  sha256 "fed45c4870980ce42c3a40a6e52d512c2d1b614de145ed3d63e59f35131aea9a"
+  url "https://github.com/contribsys/faktory/tarball/v1.2.0-1"
+  sha256 "5dd6e0b7bd28a06e0d2e32b3db093dd030b709ecdba1d1ac0e6325b643b53018"
 
   depends_on "redis"
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   resource "ego" do
@@ -42,7 +41,6 @@ class Faktory < Formula
     end
 
     cd "src/github.com/contribsys/faktory" do
-      system "dep", "ensure"
       system "go", "generate", "github.com/contribsys/faktory/webui"
       system "go", "build", "-o", bin/"faktory", "./cmd/faktory/daemon.go"
       prefix.install_metafiles
