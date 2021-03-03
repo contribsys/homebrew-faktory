@@ -9,7 +9,7 @@ class Faktory < Formula
 
   resource "ego" do
     url "https://github.com/benbjohnson/ego/archive/v0.4.2.tar.gz"
-    sha256 "4f4124af8e213b8af1954238a357216f5a2d7e433adc645a961bb8e18e8fa357"
+    sha256 "33bb65f4e740b24eda2bb9164597bcc3cf1f4fb3d95765288ee98d7f1d88bfc1"
   end
 
   def install
