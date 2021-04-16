@@ -1,15 +1,15 @@
 class Faktory < Formula
   desc "High-performance background job server"
   homepage "https://github.com/contribsys/faktory"
-  url "https://github.com/contribsys/faktory/tarball/v1.5.0"
-  sha256 "221e7f3f163ed45b9a0263a1e4bfc7fe6db053f3d2820447b03f908968b2c8fe"
+  url "https://github.com/contribsys/faktory/tarball/v1.5.1-1"
+  sha256 "935acd5fb1e407631d541a6029cc608037e00122322cfc4bbdfd9655ac5fc276"
 
   depends_on "redis"
   depends_on "go" => :build
 
   resource "ego" do
     url "https://github.com/benbjohnson/ego/archive/v0.4.2.tar.gz"
-    sha256 "33bb65f4e740b24eda2bb9164597bcc3cf1f4fb3d95765288ee98d7f1d88bfc1"
+    sha256 "4f4124af8e213b8af1954238a357216f5a2d7e433adc645a961bb8e18e8fa357"
   end
 
   def install
