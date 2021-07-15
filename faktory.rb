@@ -22,7 +22,7 @@ class Faktory < Formula
     ENV.prepend_path "PATH", go_bin_path
 
     resource("ego").stage do |stage|
-      (buildpath/"src/github.com/benbjohnson/ego").install Pathname("#{stage.staging.tmpdir}/ego-0.4.2").children
+      (buildpath/"src/github.com/benbjohnson/ego").install Pathname("#{stage.staging.tmpdir}/ego-0.4.1").children
       cd "#{buildpath}/src/github.com/benbjohnson/ego" do
         system "go", "build", "-o", "#{go_bin_path}/ego", "./cmd/ego"
       end
