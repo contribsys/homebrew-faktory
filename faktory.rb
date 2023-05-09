@@ -1,8 +1,8 @@
 class Faktory < Formula
   desc "High-performance background job server"
   homepage "https://github.com/contribsys/faktory"
-  url "https://github.com/contribsys/faktory/tarball/v1.6.2"
-  sha256 "7a8ca933fc7b10ef4a1050af66d5511ba11308135cd2a5f30f11c31e994bdbed"
+  url "https://github.com/contribsys/faktory/tarball/v1.7.0"
+  sha256 "99aa712fc0adfdb6d9ba81f2fb5f771621576288b4e9d31f91d756d09129f5c9"
 
   depends_on "redis"
   depends_on "go" => :build
@@ -35,31 +35,10 @@ class Faktory < Formula
     end
   end
 
-
-  plist_options :manual => "faktory"
-
-  def plist; <<~EOT
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>Program</key>
-        <string>#{bin}/faktory</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>EnvironmentVariables</key>
-        <dict>
-          <key>PATH</key>
-          <string>#{HOMEBREW_PREFIX}/sbin:/usr/sbin:/usr/bin:/bin:#{HOMEBREW_PREFIX}/bin</string>
-        </dict>
-      </dict>
-    </plist>
-    EOT
+  service do
+    run bin/"faktory"
+    environment_variables PATH: "#{HOMEBREW_PREFIX}/sbin:/usr/sbin:/usr/bin:/bin:#{HOMEBREW_PREFIX}/bin"
   end
-
 
   test do
     shell_output("#{bin}/faktory -v", 0)
