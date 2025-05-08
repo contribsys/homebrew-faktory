@@ -1,8 +1,8 @@
 class Faktory < Formula
   desc "High-performance background job server"
   homepage "https://github.com/contribsys/faktory"
-  url "https://github.com/contribsys/faktory/tarball/v1.8.0"
-  sha256 "630c8f49e0d229c5a2fd03a64984b8c2cf75cc98ce5db27630176d13cd6aa2cc"
+  url "https://github.com/contribsys/faktory/tarball/v1.9.2"
+  sha256 "175c50ae034fa497240961db4e1c9a5c75b491506721306853ea58212bac34a9"
 
   depends_on "redis"
   depends_on "go" => :build
